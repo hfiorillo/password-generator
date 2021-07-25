@@ -19,7 +19,7 @@ const randomFunc = {
 }
 
 generateEl.addEventListener('click', () => {
-    const length = +lengthEl.nodeValue; // adding + sets type to number
+    const length = +lengthEl.value; // adding + sets type to number
     // Checkboxes checked or not
     const hasLower = lowercaseEl.checked;
     const hasUpper = uppercaseEl.checked;
@@ -58,8 +58,6 @@ function generatePassword(lower, upper, number, symbol, length) {
     // initialise password variable
     let generatedPassword = '';
     const typesCount = lower + upper + number + symbol;
-    // console.log('typesCount: ', typesCount);
-
     // filter out unchecked types
     const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter
     ( // Filter = high order array method. Loop through each item and based on T/F value filter out false
@@ -98,7 +96,7 @@ function getRandomUpper() {
 }
 
 function getRandomNumber() {
-    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+    return +String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
 
 function getRandomSymbol() {
